@@ -1,16 +1,16 @@
 from modelos.restaurante import Restaurante
-from modelos.avaliacao import Avaliacao
+from modelos.cardapio.bebida import Bebida
+from modelos.cardapio.prato import Prato
 
 restaurante1 = Restaurante('Ctgafood', 'Fastfood')
-restaurante2 = Restaurante('TesteFood', 'Fastfood')
 
-restaurante1.receber_avaliacao('Delber', 10)
-restaurante1.receber_avaliacao('Pantera', 8.5)
-restaurante1.receber_avaliacao('Maria', 9)
-restaurante1.receber_avaliacao('Maria', 7.5)
+bebida_suco = Bebida('Suco de Maracujá', 7.0, 'grande')
+prato_macarrao = Prato('Macarrão ao molho', 23.99, 'Macarrão ao molho doce e queijo')
 
 
 def main():
-    Restaurante.listar_restaurantes()
+    print(bebida_suco)
+    print(prato_macarrao)
+
 if __name__ == '__main__':
     main()

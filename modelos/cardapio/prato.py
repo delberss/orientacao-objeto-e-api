@@ -1,0 +1,9 @@
+from modelos.cardapio.item_cardapio import ItemCardapio
+
+class Prato(ItemCardapio): # Herança: Classe Prato vai herdar da Classe ItemCardapio
+    def __init__(self, nome, preco, descricao):
+        super().__init__(nome, preco) # Acessa a classe ItemCardapio e passa os atributos
+        self._descricao = descricao
+    
+    def __str__(self):
+        return self._nome
