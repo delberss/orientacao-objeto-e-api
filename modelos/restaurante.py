@@ -1,4 +1,8 @@
 from modelos.avaliacao import Avaliacao
+from modelos.cardapio.bebida import Bebida
+from modelos.cardapio.prato import Prato
+from modelos.cardapio.item_cardapio import ItemCardapio
+
 
 class Restaurante:
     restaurantes = []
@@ -8,6 +12,7 @@ class Restaurante:
         self._categoria = categoria.title()
         self._ativo = False # _ deixa o atributo protegido "privado"
         self._avaliacao = []
+        self._cardapio = []
         Restaurante.restaurantes.append(self) # quando criar um objeto, ele vai para a propria lista da classe
 
     def __str__(self): # representação em string de um objeto
@@ -22,7 +27,7 @@ class Restaurante:
     @property # modifica como um atributo é lido
     def ativo(self):
         return '✅' if self._ativo else '❌' 
-
+    
     def alternar_estado(self):
         self._ativo = not self._ativo
 
@@ -44,3 +49,27 @@ class Restaurante:
     def listar_avaliacao(self):
         for index, avaliacao in enumerate(self._avaliacao):
             print(f'[{index+1}]: {avaliacao._cliente}: {avaliacao._nota}')
+
+    def adicionar_no_cardapio(self, item):
+        if isinstance(item, ItemCardapio): #verifica se o item é uma instancia de ItemCardapio
+            self._cardapio.append(item)
+
+    @property
+    def exibir_cardapio(self):
+        print(f'Cardápio do restaurante {self._nome}\n')
+        bebidas = []
+        pratos = []
+
+        for item in self._cardapio:
+            if isinstance(item, Prato):
+                pratos.append(item)
+            else:
+                bebidas.append(item)
+        
+        print('Bebidas:')
+        for i, bebida in enumerate(bebidas, start=1): # começar do item 1
+            print(f'{i}. {bebida} | Tamanho: {bebida._tamanho} | Preço: R${bebida._preco:.2f}')
+
+        print('Pratos:')
+        for i, prato in enumerate(pratos, start=1):
+            print(f'{i}. {prato}')
