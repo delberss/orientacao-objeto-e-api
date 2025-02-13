@@ -1,0 +1,9 @@
+Para instalar o venv: 'python -m venv venv '
+Para ativar: venv\Scripts\activate
+Para desativar: deactivate
+
+Instalar pacotes: pip install ...
+
+1. pip install requests
+2. pip freeze -> lista tudo que tem no modulo
+3. pip freeze > requirements.txt (cria um arquivo txt listando tudo que tenho instalado)
