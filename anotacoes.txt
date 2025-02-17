@@ -7,3 +7,18 @@ Instalar pacotes: pip install ...
 1. pip install requests
 2. pip freeze -> lista tudo que tem no modulo
 3. pip freeze > requirements.txt (cria um arquivo txt listando tudo que tenho instalado)
+
+
+-- Para criar servidor e fazer uma rota
+
+1. pip install fastapi
+2. pip install uvicorn
+3. estrutura base:
+    from fastapi import FastAPI
+
+    app = FastAPI()
+
+    @app.get('/api/hello')
+    def hello_world():
+        return {'Hello': 'World'}
+4. Para rodar: uvicorn nomedoarquivoquetaarota:app --reload
